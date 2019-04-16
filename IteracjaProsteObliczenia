@@ -1,0 +1,28 @@
+import javax.swing.JOptionPane;
+
+/*Napisz program, który prosi użytkownika (przez JOptionPane.showInputDialog ), żeby podał, ile
+kosztuje kilo ziemniaków. Niech program policzy i wyświetli, ile trzeba będzie zapłacić za pięć kilo
+ziemniaków.
+Potem napisz program, który prosi użytkownika (przez JOptionPane.showInputDialog ), żeby podał,
+ile kosztuje kilo ziemniaków i ile kilo chce kupić. Niech program policzy i wyświetli, ile trzeba będzie
+zapłacić za te ziemniaki.
+Potem napisz program, który prosi użytkownika (przez JOptionPane.showInputDialog ), żeby podał,
+ile kosztuje kilo ziemniaków, ile kilo ziemniaków chce kupić, ile kosztuje kilo bananów i ile kilo bananów
+chce kupić. Niech program policzy i wyświetli, ile trzeba będzie zapłacić za te ziemniaki i banany razem. 
+*/
+public class IteracjaProsteObliczenia {
+
+	public static void main(String[] args) {
+		String cenaSTR = JOptionPane.showInputDialog("Podaj ile kosztuja ziemniaki", "wpisz znazenie przez kropke");
+
+		float cena = Float.parseFloat(cenaSTR);
+if (cena < 0) {
+			System.out.println("Wprowazono nie poprawna cene. Wpisz dodatnie znaczenie");
+		}
+		float kwota;
+		kwota = cena * 5;
+		System.out.println("Za 5 kg ziemniakw zapacisz " + kwota + "zl");
+
+	}
+
+}
