@@ -1,0 +1,28 @@
+import javax.swing.JOptionPane;
+
+/*
+ Przy pomocy JOptionPane zapytaj użytkownika co chce kupić, jaką ilość towaru chce kupić i jaka jest
+jego cena. Wyświetl przy pomocy JOptionPane odpowiedni komunikat.
+Przykład:
+Co chcesz kupić? - ziemniaki
+Podaj cenę towaru - 5
+Podaj ilość towaru - 10
+Za ziemniaki, który chcesz kupić, zapłacisz 50 zł
+ */
+public class LiczenieCan {
+
+	public static void main(String[] args) {
+		String towarSTR = JOptionPane.showInputDialog("Co chcesz kupic?");
+
+		String cenaSTR = JOptionPane.showInputDialog("Podaj cene towaru");
+		double cena = Double.parseDouble(cenaSTR);
+
+		String iloscSTR = JOptionPane.showInputDialog("Podaj ilosc towaru w kg");
+		double ilosc = Double.parseDouble(iloscSTR);
+
+		double kwota = cena * ilosc;
+
+		JOptionPane.showMessageDialog(null, "Za " + towarSTR + ", ktory chcesz kupic, zaplacisz " + kwota + " zl");
+	}
+
+}
