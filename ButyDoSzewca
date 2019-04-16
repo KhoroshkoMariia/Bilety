@@ -1,0 +1,55 @@
+import javax.swing.JOptionPane;
+
+public class ButyDoSzewca {
+
+public static void main(String[] args) {
+
+    String dzienSTR = JOptionPane.showInputDialog("W jaki dzien tygodnia oddlaes buty?",
+            "Wprowadz znaczenia od 1 do 7");
+    int dzien = Integer.parseInt(dzienSTR);
+
+    String dlugoscNaprawySTR = JOptionPane.showInputDialog("Ile dni bedzie trwala naprawa?",
+            "Dlugosc naprawy od 1 do 7 dni ");
+    int dlugoscNaprawy = Integer.parseInt(dlugoscNaprawySTR);
+
+    int dzienWydania = dzien + dlugoscNaprawy;
+    String nazwaDnia = null;
+    if (dzienWydania > 7) {
+       dzienWydania = dzienWydania - 7;
+        }
+
+    if (dzien <= 0 || dzien > 7 || dlugoscNaprawy <= 0) {
+        JOptionPane.showMessageDialog(null, "Wprowadziles nie poprawne dane");return;
+    }
+
+    switch (dzienWydania) {
+    case 0:
+        nazwaDnia = "niedziele";
+        break;
+    case 1:
+        nazwaDnia = "poniedzilek";
+        break;
+
+    case 2:
+        nazwaDnia = "wtorek";
+        break;
+    case 3:
+        nazwaDnia = "srode";
+        break;
+    case 4:
+        nazwaDnia = "czwartek";
+        break;
+    case 5:
+        nazwaDnia = "piatek";
+        break;
+    case 6:
+        nazwaDnia = "sobote";
+        break;
+    case 7:
+        nazwaDnia = "niedziele";
+        break;
+
+    }
+    JOptionPane.showMessageDialog(null, "Buty beda gotowe do odbioru w  " + nazwaDnia);
+}
+}
