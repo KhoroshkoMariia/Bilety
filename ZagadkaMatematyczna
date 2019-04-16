@@ -1,0 +1,33 @@
+import java.util.Random;
+import java.util.Scanner;
+
+/*
+ * Program losuje dwie liczby z zakresu od 0 do 99 (patrz poniżej). Podaje te dwie liczby i pyta jaka jest ich
+suma (nie podaje jej). Użytkownik ma odgadnąć (no, policzyć w głowie) wynik. Program pyta o wynik
+wielokrotnie, tak długo, aż użytkownik poda prawidłowy wynik.
+ */
+public class ZagadkaMatematyczna {
+
+	private static int suma;
+
+	public static void main(String[] args) {
+		Random r = new Random();
+		int liczba1 = r.nextInt(100);
+		int liczba2 = r.nextInt(100);
+		int a = liczba1 + liczba2;
+		System.out.println("Wygenerowane liczby: " + liczba1 + " oraz " + liczba2);
+		System.out.println("Podaj sume liczb");
+		Scanner sc = new Scanner(System.in);
+		int suma = sc.nextInt();
+
+		while (suma != a) {
+			System.out.println("Blad. Sprobuj ponownie");
+			Scanner sc2 = new Scanner(System.in);
+			int suma2 = sc2.nextInt();
+			suma = suma2;
+
+		}
+		System.out.println("Prawidlowy wynik");
+
+	}
+}
