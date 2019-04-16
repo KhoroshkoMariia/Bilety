@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+/*
+Napisz trzy programy, które dla podanych liczb: wzrostu w cm i masy ciała w kg obliczą i wypiszą
+współczynnik BMI, oraz podsumowanie informujące o stanie/zaleceniach. (Informacje o BMI: wzór,
+interpretację wyników, proszę znaleźć samodzielnie). Programy mają różnić się sposobem interakcji z
+użytkownikiem.
+Wersję A należy uruchamiać z dwoma parametrami wiersza poleceń, a liczby można odczytać w
+następujący sposób:
+11 ddoouubbllee wwzzrroosstt == DDoouubbllee..ppaarrsseeDDoouubbllee((aarrggss[[00]]));;
+
+Wersja B komunikuje się z użytkownikiem przez konsolę: pisze za pomocą System.out , a do
+wczytywania (najlepiej) używa klasy Scanner :
+SSccaannnneerr sscc == nneeww SSccaannnneerr((SSyysstteemm..iinn));;
+ddoouubbllee wwzzrroosstt == sscc..nneexxttDDoouubbllee(());;
+Wersja C pyta za pomocą JOptionPane.showInputDialog , a podsumowanie wyświetla poprzez
+JOptionPane.showMessageDialog .
+
+Obliczenie BMI:
+Należy podzielić masę ciała (podaną w kilogramach) przez wzrost w metrach podniesiony do kwadratu.
+
+Zakres wartości BMI:
+
+< 16 - wygłodzenie
+16 - 16.99 - wychudzenie
+17 - 18.49 - niedowaga
+18.5 - 24.99 - waga prawidłowa
+25 - 29.99 - nadwaga
+30 - 34.99 - I stopień otyłości
+35 - 39.99 - II stopień otyłości
+> 40 - otyłość skrajna
+Więcej: http://zdrowie.gazeta.pl/Zdrowie/7,101460,23032174,jak-obliczyc-bmi-zasady-i-porady.html
+
+ */
+
+//---------2-----------
+public class WspolczynnikBMI3 {
+
+	public static void main(String[] args) {
+
+		String wzrostSTR = JOptionPane.showInputDialog("Podaj swoj wzrost w cm");
+		double wzrost = Double.parseDouble(wzrostSTR);
+
+		String masaSTR = JOptionPane.showInputDialog("Podaj mase swojego ciala");
+		Double masa = Double.parseDouble(masaSTR);
+
+		double wspolczynnik = (masa) / Math.pow(wzrost / 100.0, 2);
+if (wzrost <= 0 || masa <= 0 || wspolczynnik <= 0) {
+			JOptionPane.showMessageDialog(null, "Wprowadziles bledne dane. Sproboj poniwnie");
+
+		} else if (wspolczynnik <= 16) {
+			JOptionPane.showMessageDialog(null, "Twoj wspolczynnik BMI rowna sie " + wspolczynnik
+					+ ". Wyglodzenie. Zycie takiej osoby jest zagrozone!");
+		}
+
+		else if (wspolczynnik < 16.99) {
+			JOptionPane.showMessageDialog(null,
+					"Twoj wspolczynnik BMI rowna sie " + wspolczynnik + ". Wychudzenie.Zwieksz mase ciala ");
+		} else if (wspolczynnik <= 18.49) {
+			JOptionPane.showMessageDialog(null,
+					"Twoj wspolczynnik BMI rowna sie " + wspolczynnik + ". Niedowaga.Zwieksz mase ciala");
+		} else if (wspolczynnik <= 24.99) {
+			JOptionPane.showMessageDialog(null,
+					"Twoj wspolczynnik BMI rowna sie " + wspolczynnik + ". Waga prawidaowa. Gratulacje!");
+		} else if (wspolczynnik <= 29.99) {
+			JOptionPane.showMessageDialog(null,
+					"Twoj wspolczynnik BMI rowna sie " + wspolczynnik + ". Nadwaga. Zacznij dijete");
+		} else if (wspolczynnik <= 34.99) {
+			JOptionPane.showMessageDialog(null, "Twoj wspolczynnik BMI rowna sie " + wspolczynnik
+					+ ". I stopien otylosci. Zacznij dijete + skonsultuj sie z dietologiem");
+
+		} else if (wspolczynnik <= 39.99) {
+			JOptionPane.showMessageDialog(null, "Twoj wspolczynnik BMI rowna sie " + wspolczynnik
+					+ ". I stopien otylosci. Skonsultuj sie z lekarzem");
+
+		} else if (wspolczynnik > 40) {
+			JOptionPane.showMessageDialog(null, "Twoj wspolczynnik BMI rowna sie " + wspolczynnik
+					+ ". Otylosc skrajna. Natychmiast skontaktuj sie z lekarzem");
+
+		}
+
+	}
+
+}
