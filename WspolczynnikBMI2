@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+/*
+Napisz trzy programy, które dla podanych liczb: wzrostu w cm i masy ciała w kg obliczą i wypiszą
+współczynnik BMI, oraz podsumowanie informujące o stanie/zaleceniach. (Informacje o BMI: wzór,
+interpretację wyników, proszę znaleźć samodzielnie). Programy mają różnić się sposobem interakcji z
+użytkownikiem.
+Wersję A należy uruchamiać z dwoma parametrami wiersza poleceń, a liczby można odczytać w
+następujący sposób:
+11 ddoouubbllee wwzzrroosstt == DDoouubbllee..ppaarrsseeDDoouubbllee((aarrggss[[00]]));;
+
+Wersja B komunikuje się z użytkownikiem przez konsolę: pisze za pomocą System.out , a do
+wczytywania (najlepiej) używa klasy Scanner :
+SSccaannnneerr sscc == nneeww SSccaannnneerr((SSyysstteemm..iinn));;
+ddoouubbllee wwzzrroosstt == sscc..nneexxttDDoouubbllee(());;
+Wersja C pyta za pomocą JOptionPane.showInputDialog , a podsumowanie wyświetla poprzez
+JOptionPane.showMessageDialog .
+
+Obliczenie BMI:
+Należy podzielić masę ciała (podaną w kilogramach) przez wzrost w metrach podniesiony do kwadratu.
+
+Zakres wartości BMI:
+
+< 16 - wygłodzenie
+16 - 16.99 - wychudzenie
+17 - 18.49 - niedowaga
+18.5 - 24.99 - waga prawidłowa
+25 - 29.99 - nadwaga
+30 - 34.99 - I stopień otyłości
+35 - 39.99 - II stopień otyłości
+> 40 - otyłość skrajna
+Więcej: http://zdrowie.gazeta.pl/Zdrowie/7,101460,23032174,jak-obliczyc-bmi-zasady-i-porady.html
+
+ */
+public class WspolczynnikBMI2 {
+
+	public static void main(String[] args) {
+		
+		
+// ---------2-----------
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Jaki masz wzrost w cm?");
+		double wzrost = sc.nextDouble();
+		
+		System.out.println("Podaj swoja mase ciala w kg");
+		double masa = sc.nextDouble();
+
+		double wspolczynnik = (masa)/ Math.pow(wzrost/100,2);
+		System.out.println("Twj wspolczynnik BMI rowna sie " + wspolczynnik);
+		
+		if (wspolczynnik <= 16) {
+			System.out.println("Wyglodzenie. Zycie takiej osoby jest zagrozone!");
+		} else if (wspolczynnik < 16.99) {
+			System.out.println("Wychudzenie.Zwieksz mase ciala ");
+		} else if (wspolczynnik <= 18.49) {
+			System.out.println("Niedowaga.Zwieksz mase ciala");
+		} else if (wspolczynnik <= 24.99) {
+			System.out.println("Waga prawidaowa. Gratulacje!");
+		} else if (wspolczynnik <= 29.99) {
+			System.out.println("Nadwaga. Zacznij dijete");
+		} else if (wspolczynnik <= 34.99) {
+			System.out.println("I stopien otylosci. Zacznij dijete + skonsultuj sie z dietologiem");
+
+		} else if (wspolczynnik <= 39.99) {
+			System.out.println("I stopien otylosci. Skonsultuj sie z lekarzem");
+
+		} else if (wspolczynnik > 40) {
+			System.out.println("Otylosc skrajna. Natychmiast skontaktuj sie z lekarzem");
+
+		}
+		sc.close();
+	}
+
+}
