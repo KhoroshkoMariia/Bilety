@@ -1,0 +1,36 @@
+/*
+ Stwórz klasę Miesiace z metodą main . Zapytaj użytkownika o nazwę miesiąca i na tej podstawie
+wypisz mu ile dni na dany miesiąc.
+Spróbuj logikę obliczania ile dni ma miesiąc wydzielić do osobnej metody w tej klasie.
+Wersja A
+Nie przyjmuj się lutym - zwracaj zawsze jedną wartość
+Wersja B (trudniejsza)
+Jeżeli użytkownik poda luty - zapytaj go o rok. Na tej podstawie policz czy w tym roku luty był przestępny
+czy nie
+ */
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class miesiace {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Wprowadz nazwe miesiaca bez polskich znakow i z malej litery");
+		String miesiac = sc.nextLine();
+		if (miesiac.equals("styczen") || miesiac.equals("marzec") || miesiac.equals("maj") || miesiac.equals("sierpien")
+				|| miesiac.equals("lipiec") || miesiac.equals("pazdziernik") || miesiac.equals("grudzien")) {
+			System.out.println(miesiac + " ma 31 dzien ");
+		} else if (miesiac.equals("czerwiec") || miesiac.equals("kwiecien") || miesiac.equals("wrzesien")
+				|| miesiac.equals("listopad")) {
+			System.out.println(miesiac + " ma 30 dni ");
+		} else if (miesiac.equals("luty")) {
+			System.out.println(miesiac + " ma 28/29 dni");
+		} else {
+			System.out.println("Wprowadziłes bledne dane");
+		}
+		sc.close();
+
+	}
+
+}
