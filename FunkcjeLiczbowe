@@ -1,0 +1,82 @@
+import javax.swing.JOptionPane;
+
+/*
+ * Napisz w formie metod statycznych, które przyjmują parametry typu double i zwracają wynik typu
+double (można pominąć te, które zrobiliśmy na zajęciach) takie funkcje matematyczne:
+1. stopyNaMetry - przelicza odległość wyrażoną w stopach na metry,
+2. max - zwraca większą z dwóch liczb,
+3. srednia - oblicza średnią z dwóch liczb,
+4. poleKola - oblicza pole koła o podanym promieniu (jeden parametr) podpowiedź: wartość PI jest
+dostępna jako Math.PI
+5. bmi - oblicza współczynnik BMI dla podanych dwóch parametrów: wzrostu w metrach i wagi w kg.
+6. poleTrojkata - z trzema parametrami - oblicza pole trójkąta o podanych bokach z wzoru Herona.
+Dla wszystkich funkcji dodaj przykładowe wywołania, żeby sprawdzić czy działają poprawnie. Dla
+wybranych napisz też interaktywne programy, które pytają użytkownika o dane i wypisują wynik.
+ */
+public class FunkcjeLiczbowe {
+public static void main(String[] args) {
+		String jakaFunkcjaSTR = JOptionPane.showInputDialog(
+				"Wprowadz numer funkcii, którą chcesz obliczyc: \n 1 - stopy na metry, \n 2- max, \n 3- srednia, \n 4 -pole kola,\n 5 - bmi, \n 6- pole trojkata  ",
+				null);
+		double jakaFunkcja = Double.parseDouble(jakaFunkcjaSTR);
+
+		if (jakaFunkcja < 1 || jakaFunkcja > 6) {
+			JOptionPane.showMessageDialog(null, "Wprowadziłek bledne dane");
+		} else if (jakaFunkcja == 1) {
+			String stopySTR = JOptionPane.showInputDialog("Wprowadz ilosc stop", "stopy");
+			double stopy = Double.parseDouble(stopySTR);
+			JOptionPane.showMessageDialog(null, stopy + " stop " + " rowne " + stopy / 3.2808 + " metrow ");
+
+		} else if (jakaFunkcja == 2) {
+			String liczba1STR = JOptionPane.showInputDialog("Wprowadz pierwsza liczbe", "liczba1");
+			double liczba1 = Double.parseDouble(liczba1STR);
+
+			String liczba2STR = JOptionPane.showInputDialog("Wprowadz druga liczbe", "liczba2");
+			double liczba2 = Double.parseDouble(liczba2STR);
+
+			double max = Math.max(liczba1, liczba2);
+
+			JOptionPane.showMessageDialog(null, "Maksymalna liczba: " + max);
+		} else if (jakaFunkcja == 3) {
+			String liczbaSrednia1STR = JOptionPane.showInputDialog("Wprowadz pierwsza liczbe", null);
+			double liczbaSrednia1 = Double.parseDouble(liczbaSrednia1STR);
+
+			String liczbaSrednia2STR = JOptionPane.showInputDialog("Wprowadz druga liczbe", null);
+			double liczbaSrednia2 = Double.parseDouble(liczbaSrednia2STR);
+
+			double srednia = (liczbaSrednia1 + liczbaSrednia2) / 2;
+JOptionPane.showMessageDialog(null, "Srednia liczba rownasie " + srednia);
+		} else if (jakaFunkcja == 4) {
+			String promienOkreguSTR = JOptionPane.showInputDialog("Wprowadz promien okregu", null);
+			double promienOkregu = Double.parseDouble(promienOkreguSTR);
+
+			double pole = Math.pow(promienOkregu, 2) * Math.PI;
+			JOptionPane.showMessageDialog(null, "Pole kola rowna sie " + pole);
+		} else if (jakaFunkcja == 5) {
+			String wzrostSTR = JOptionPane.showInputDialog("Wprowadz swoj wzrost", null);
+			double wzrost = Double.parseDouble(wzrostSTR);
+
+			String masaSTR = JOptionPane.showInputDialog("Wprowadz swoj wzrost w cm", null);
+			double masa = Double.parseDouble(masaSTR);
+
+			double wspolczynnik = (masa) / Math.pow(wzrost / 100, 2);
+			JOptionPane.showMessageDialog(null, "Wspolczynnik bmi rowna sie " + wspolczynnik);
+		} else if (jakaFunkcja == 6) {
+			String strona1STR = JOptionPane.showInputDialog("Wprowadz pierwsza strone trojkata", "cm");
+			double strona1 = Double.parseDouble(strona1STR);
+
+			String strona2STR = JOptionPane.showInputDialog("Wprowadz druga strone", "cm");
+			double strona2 = Double.parseDouble(strona2STR);
+			String strona3STR = JOptionPane.showInputDialog("Wprowadz trzecia strone", "cm");
+			double strona3 = Double.parseDouble(strona2STR);
+
+			double p = (strona1 + strona2 + strona3) / 2;
+			double s = p * (p - strona1) * (p - strona2) * (p - strona3);
+			double pole = Math.sqrt(s);
+			JOptionPane.showMessageDialog(null, "Pole trojkatu wynosi " + pole + "cm");
+
+		}
+
+	}
+
+}
